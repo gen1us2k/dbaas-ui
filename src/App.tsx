@@ -1,26 +1,11 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import DeploymentList from './DeploymentList';
+import K8sRegistration from "./components/Kubernetes/K8sRegistration/K8sRegistration";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <DeploymentList />
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <K8sRegistration/>
     </div>
   );
 }
