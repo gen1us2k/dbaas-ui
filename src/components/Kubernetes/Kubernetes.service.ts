@@ -1,14 +1,6 @@
-const serverProxyUrl = `http://localhost:8080/proxy`;
-const serverUrl = 'http://localhost:8080';
-export abstract class KubernetesService {
+import { serverUrl } from "../constants";
 
-    static async getDeployments(kubernetesClusterName:string, namespace:string): Promise<any> {
-        return fetch(`${serverProxyUrl}/${kubernetesClusterName}/apis/apps/v1/namespaces/${namespace}/deployments`, {
-            method: 'get',
-        }).then((value) => {
-            return value.json();
-        });
-    }
+export abstract class KubernetesService {
 
     static async registerK8sCluster(config: string, clusterName: string): Promise<any> {
         return fetch(`${serverUrl}/k8s`, {

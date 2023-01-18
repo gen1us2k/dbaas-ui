@@ -1,12 +1,15 @@
 import React from 'react';
 import './App.css';
-import K8sRegistration from "./components/Kubernetes/K8sRegistration/K8sRegistration";
+import {Route, Routes, BrowserRouter} from "react-router-dom";
+import MainPage from "./components/MainPage/MainPage";
 
 function App() {
   return (
-    <div className="App">
-      <K8sRegistration/>
-    </div>
+        <BrowserRouter>
+            <Routes>
+                <Route path={"/"} element={<MainPage/>}/>
+            </Routes>
+        </BrowserRouter>
   );
 }
 
