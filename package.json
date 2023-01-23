@@ -5,9 +5,10 @@
   "dependencies": {
     "@grafana/ui": "^9.3.2",
     "@kubernetes/client-node": "^0.18.0",
+    "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.4",
     "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react":  "^12.1.5",
+    "@testing-library/react": "^12.1.5",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.11",
@@ -24,13 +25,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "eject": "react-scripts eject",
+    "lint": "./node_modules/.bin/eslint"
   },
   "browserslist": {
     "production": [
@@ -43,5 +39,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@grafana/data": "^9.3.2",
+    "eslint": "^8.32.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.0.0"
   }
 }
