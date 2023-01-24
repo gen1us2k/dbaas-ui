@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Table from '@mui/material/Table';
 import {
   Paper, TableBody, TableCell, TableContainer, TableRow, TableHead,
 } from '@mui/material';
 import DBClusterService from '../DBCluster.service';
-import { namespace } from '../../constants';
+import { namespace, StoreContext } from '../../constants';
 import { DBClusterResponse } from './DBCluster.types';
 import { DatabaseOperators } from '../../common.types';
 
@@ -42,10 +42,12 @@ const prepareDBClusters = (response: DBClusterResponse): DBCluster[] => response
 function DBClusterList() {
   const [dbClusters, setDBClusters] = useState<DBCluster[]>([]);
 
+  const context = useContext(StoreContext);
+
   useEffect(() => {
-    DBClusterService.getDbClusters('minikube', namespace).then((result) => {
+    DBClusterService.getDbClusters(context?.state?.k8sName || 'minikube', namespace).then((result) => {
       setDBClusters(prepareDBClusters(result));
-    }); // TODO save name to store
+    });
   }, []);
 
   return (
